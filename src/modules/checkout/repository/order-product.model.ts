@@ -1,14 +1,19 @@
 import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
 
 @Table({
-  modelName: 'product-registration-table',
-  tableName: "products",
+  tableName: "order_products",
   timestamps: false,
 })
-export default class ProductModel extends Model {
+export default class OrderProductModel extends Model {
   @PrimaryKey
   @Column({ allowNull: false })
   id: string;
+
+  @Column({ allowNull: false, field: "order_id" })
+  orderId: string;
+
+  @Column({ allowNull: false, field: "product_id" })
+  productId: string;
 
   @Column({ allowNull: false })
   name: string;
@@ -16,6 +21,6 @@ export default class ProductModel extends Model {
   @Column({ allowNull: false })
   description: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, field: "sales_price" })
   salesPrice: number;
 }

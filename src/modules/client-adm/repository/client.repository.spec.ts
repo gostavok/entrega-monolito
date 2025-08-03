@@ -65,6 +65,7 @@ describe("Client Repository test", () => {
 
   it("should find a client", async () => {
 
+    const currentDate = new Date()
     const client = await ClientModel.create({
       id: '1',
       name: 'Lucian',
@@ -76,8 +77,8 @@ describe("Client Repository test", () => {
       city: "Criciúma",
       state: "SC",
       zipcode: "88888-888",      
-      createdAt: new Date(),
-      updatedAt: new Date()
+      createdAt: currentDate,
+      updatedAt: currentDate
     })
 
     const repository = new ClientRepository()
